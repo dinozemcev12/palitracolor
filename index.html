@@ -8,28 +8,52 @@
 </head>
 <body>
 
-<div class="box">
-  <svg class="arc-text" viewBox="0 0 160 80" width="150">
-    <path id="curve" d="M 20,70 A 70,70 0 0,1 140,70" fill="none"/>
-    <text font-size="14" fill="white" font-family="sans-serif" font-weight="500" letter-spacing="1">
-      <textPath href="#curve" startOffset="50%" text-anchor="middle">Select a color</textPath>
-    </text>
-  </svg>
-  <img src="color-palette.png" class="palette-icon" alt="Palette">
-</div>
-<span class="arrow">&#62;</span>
+<div class="app">
 
-<h1>Hex Color Picker</h1>
-<div class="container">
-    <div id="palette"></div>
-    <div class="info">
-        <p>Selected color: <span id="color">None</span></p>
-        <div id="preview"></div>
+    <div class="left-panel">
+        <div class="card select-card">
+            <svg class="arc-text" viewBox="0 0 160 80" width="140">
+                <path id="curve" d="M 20,70 A 70,70 0 0,1 140,70" fill="none"/>
+                <text font-size="14" fill="white" font-family="sans-serif" font-weight="500" letter-spacing="1">
+                    <textPath href="#curve" startOffset="50%" text-anchor="middle">Select a color</textPath>
+                </text>
+            </svg>
+            <img src="color-palette.png" class="palette-icon" alt="Palette">
+        </div>
+        <span class="arrow">&#62;</span>
     </div>
+
+    <div class="main">
+        <h1>Hex Color Picker</h1>
+        <div class="container">
+            <div id="palette"></div>
+            <div class="info">
+                <p class="info-label">Selected color: <span id="color">None</span></p>
+                <div id="preview"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="card pick-card">
+            <svg class="arc-text" viewBox="0 0 160 80" width="140">
+                <path id="curve2" d="M 20,70 A 70,70 0 0,1 140,70" fill="none"/>
+                <text font-size="14" fill="white" font-family="sans-serif" font-weight="500" letter-spacing="1">
+                    <textPath href="#curve2" startOffset="50%" text-anchor="middle">Pick a color</textPath>
+                </text>
+            </svg>
+            <img src="color-picker.png" class="pick-icon" alt="Eyedropper">
+        </div>
+        <span class="arrow left-arrow">&#60;</span>
+    </div>
+
 </div>
-<div>
+
+<div class="bottom">
     <button>Generate color</button>
-    <div id="hiscolors"><h2>Colors history</h2></div>
+    <div id="hiscolors">
+        <h2>Colors history</h2>
+    </div>
 </div>
 
 <script src="script.js"></script>
