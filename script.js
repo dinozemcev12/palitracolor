@@ -17,11 +17,15 @@ const palette = document.getElementById("palette");
 const preview = document.getElementById("preview");
 const text = document.getElementById("color");
 const generateBtn = document.querySelector("button");
+const hiscolors = document.getElementById("hiscolors");
+const selectCard = document.querySelector(".select-card");
+const pickCard = document.querySelector(".pick-card");
 const histList = document.createElement("div");
 histList.id = "histList";
-document.getElementById("hiscolors").appendChild(histList);
+hiscolors.appendChild(histList);
 
 let history = [];
+let pickMode = false;
 
 function generateRandomHex() {
     const chars = "0123456789ABCDEF";
@@ -90,6 +94,29 @@ generateBtn.addEventListener("click", () => {
     preview.style.background = newColor;
     text.textContent = newColor;
     addToHistory(newColor);
+});
+
+function setPickMode(active) {
+    pickMode = active;
+    document.body.classList.toggle("pick-mode", active);
+    pickCard.classList.toggle("active", active);
+}
+
+selectCard.addEventListener("click", () => {
+    setPickMode(false);
+    selectCard.classList.add("active");
+    pickCard.classList.remove("active");
+    palette.classList.add("open");
+    hiscolors.classList.add("open");
+    hiscolors.scrollIntoView({ behavior: "smooth", block: "nearest" });
+});
+
+pickCard.addEventListener("click", () => {
+    setPickMode(true);
+    pickCard.classList.add("active");
+    selectCard.classList.remove("active");
+    palette.classList.add("open");
+    hiscolors.classList.remove("open");
 });
 
 renderHistory();

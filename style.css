@@ -48,6 +48,13 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    border: 2px solid transparent;
+}
+
+.card.active {
+    border-color: #555;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
 }
 
 .arc-text {
@@ -95,6 +102,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+#palette.open {
+    max-height: 500px;
+    opacity: 1;
 }
 
 .row {
@@ -186,12 +202,29 @@ button:hover {
     background: #333;
 }
 
+#hiscolors {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+#hiscolors.open {
+    max-height: 200px;
+    opacity: 1;
+}
+
 #hiscolors h2 {
     font-size: 14px;
     font-weight: 500;
     color: #888;
     margin-bottom: 8px;
     text-align: center;
+}
+
+body.pick-mode #palette,
+body.pick-mode #palette .hex {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' stroke='%23000' stroke-width='1' d='M7 21l3-3 9-9-3-3-9 9-3 3z'/%3E%3Cpath fill='%23fff' stroke='%23000' stroke-width='1' d='M14 4l3 3'/%3E%3C/svg%3E") 2 22, crosshair;
 }
 
 #histList {
