@@ -59,6 +59,9 @@ function selectColor(color) {
     document.querySelectorAll(".hex").forEach(h => h.classList.remove("selected"));
     preview.style.background = color;
     text.textContent = color;
+
+    navigator.clipboard.writeText(color);
+
     addToHistory(color);
 }
 
