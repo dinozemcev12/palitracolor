@@ -26,11 +26,13 @@ function generateRandomHex() {
 }
 
 function addToHistory(color) {
-    history.unshift(color);
-    if (history.length > 20) {
+    if (color != history[0]) {
+        history.unshift(color);
+        if (history.length > 20) {
         history.pop();
     }
     renderHistory();
+}
 }
 
 function renderHistory() {
